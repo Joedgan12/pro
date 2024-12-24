@@ -1,0 +1,10 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <StackLayout>
+        <TextField hint="Email" text="{{ email }}" keyboardType="email" autocorrect="false" autocapitalizationType="none"/>
+        <TextField hint="Password" text="{{ password }}" secure="true"/>
+        <TextField hint="Confirm Password" text="{{ confirmPassword }}" secure="true"/>
+        <Label text="{{ errorMessage }}" class="error-message"/>
+        <Button text="Register" tap="{{ onRegister }}" isEnabled="{{ !isLoading }}"/>
+        <ActivityIndicator busy="{{ isLoading }}" />
+    </StackLayout>
+</Page>

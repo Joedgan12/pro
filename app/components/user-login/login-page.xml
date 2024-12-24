@@ -1,0 +1,44 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Login" class="action-bar" />
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Label text="Welcome Back" class="h1 text-center m-b-20" />
+            
+            <StackLayout class="form">
+                <Label text="Email" class="label" />
+                <TextField 
+                    text="{{ email }}" 
+                    hint="Enter your email" 
+                    keyboardType="email"
+                    autocorrect="false"
+                    autocapitalizationType="none"
+                    editable="{{ !isLoading }}"
+                    class="input input-border" />
+                
+                <Label text="Password" class="label" />
+                <TextField 
+                    text="{{ password }}" 
+                    hint="Enter your password" 
+                    secure="true"
+                    editable="{{ !isLoading }}"
+                    class="input input-border" />
+                
+                <Button 
+                    text="{{ isLoading ? 'Logging in...' : 'Login' }}" 
+                    tap="{{ onLogin }}" 
+                    isEnabled="{{ !isLoading }}"
+                    class="btn btn-primary m-t-20" />
+                    
+                <Label text="{{ errorMessage }}" 
+                    class="text-danger text-center m-t-10" 
+                    visibility="{{ errorMessage ? 'visible' : 'collapsed' }}" 
+                    textWrap="true" />
+            </StackLayout>
+            
+            <GridLayout rows="auto" columns="*, auto, *" class="m-t-20">
+                <Label col="0" text="Don't have an account?" class="text-center" />
+                <Label col="1" text="Sign up" tap="{{ onSignUp }}" class="text-primary font-weight-bold" />
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>
